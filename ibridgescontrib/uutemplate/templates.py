@@ -1,6 +1,5 @@
 from string import Template
 
-
 _SERVERS_TO_ZONE = {
     "youth": "nluu1p",
     "geo": "nluu11p",
@@ -39,7 +38,7 @@ _BASE_TEMPLATE = """{
 """
 
 
-class IBridgesUUTemplates():
+class IBridgesUUTemplates:
     name = "Utrecht University templates"
     questions = ["email_address"]
 
