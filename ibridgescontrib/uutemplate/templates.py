@@ -1,3 +1,6 @@
+"""Templates for irods_environment.json for Utrecht University servers."""
+from __future__ import annotations
+
 from string import Template
 
 _SERVERS_TO_ZONE = {
@@ -39,19 +42,24 @@ _BASE_TEMPLATE = """{
 
 
 class IBridgesUUTemplates:
+    """Template for creating iRODS environment json files at Utrecht University."""
+
     name = "Utrecht University templates"
     questions = ["email_address"]
 
     @staticmethod
-    def list_templates():
+    def list_templates() -> list[str]:
+        """List all templates for servers that are available."""
         return [f"uu-{key: <7} - {_SERVER_DESCRIPTIONS[key]}" for key in _SERVERS_TO_ZONE]
 
     @staticmethod
-    def contains(template_name):
+    def contains(template_name: str) -> bool:
+        """Whether a template name is provided by this template."""
         return template_name in ["uu-" + key for key in _SERVERS_TO_ZONE]
 
     @staticmethod
-    def environment_json(template_name, email_address):
+    def environment_json(template_name: str, email_address: str) -> str:
+        """Create a valid environment.json with the given inputs."""
         host = template_name[3:]
         zone = _SERVERS_TO_ZONE[host]
         template = Template(_BASE_TEMPLATE)
