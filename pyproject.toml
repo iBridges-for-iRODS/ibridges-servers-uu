@@ -3,8 +3,8 @@ requires = ["setuptools", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "ibridges-uu-template"
-description = "Template for connecting to Utrecht University YoDa servers"
+name = "ibridges-servers-uu"
+description = "iRODS environments for connecting to Utrecht University YoDa servers"
 authors = [
     {name = "Raoul Schram", email = "r.d.schram@uu.nl"},
 ]
@@ -27,7 +27,7 @@ dependencies = [
 [project.optional-dependencies]
 test = ["ruff", "mypy"]
 
-[project.entry-points."ibridges_template"]
+[project.entry-points."ibridges_server_template"]
 uu = "ibridgescontrib.uutemplate.templates:IBridgesUUTemplates"
 
 [tool.setuptools]
