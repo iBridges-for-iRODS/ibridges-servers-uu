@@ -25,7 +25,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-lint = ["ruff", "mypy"]
+test = ["ruff", "mypy"]
 
 [project.entry-points."ibridges_template"]
 uu = "ibridgescontrib.uutemplate.templates:IBridgesUUTemplates"
