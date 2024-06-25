@@ -1,4 +1,4 @@
-# iBridges iRODS environment templates for UU YoDa servers
+# iRODS environments for Utrecht University YoDa servers
 
 This repository can be used to create an iRODS environment json that is needed to connect to the Utrecht University YoDa servers. 
 
@@ -7,15 +7,15 @@ This repository can be used to create an iRODS environment json that is needed t
 Type the following on the command line (in your virtual environment if you use one):
 
 ```sh
-pip install git+https://github.com/UtrechtUniversity/ibridges-template-uu.git
+pip install git+https://github.com/UtrechtUniversity/ibridges-servers-uu.git
 ```
 
-## Step 2: Find the right template
+## Step 2: Find the right server
 
 On the command line run the following command:
 
 ```sh
-ibridges template --list
+ibridges setup --list
 ```
 
 This shows you all the names of the YoDa servers available.
@@ -25,7 +25,7 @@ This shows you all the names of the YoDa servers available.
 In the following examples, we use the `uu-its` server, replace it with the server that is available to your faculty.
 
 ```sh
-ibridges template uu-its
+ibridges setup uu-its
 ```
 
 This will ask for your email address. After filling it in, a file will be created in the default location for the irods environment file (`~/.irods/irods_environment.json` on Linux and MacOS). You can modify this location adding the `--output SOME_NEW_LOCATION` flag to the above command.
