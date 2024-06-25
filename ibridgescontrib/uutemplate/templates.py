@@ -4,24 +4,24 @@ from __future__ import annotations
 from string import Template
 
 _SERVERS_TO_ZONE = {
-    "youth": "nluu1p",
-    "geo": "nluu11p",
-    "i-lab": "nluu5p",
-    "dgk": "nluu9ot",
-    "science": "nluu6p",
-    "fsw": "nluu10p",
-    "its": "nluu12p"
+    "uu-youth": "nluu1p",
+    "uu-geo": "nluu11p",
+    "uu-i-lab": "nluu5p",
+    "uu-dgk": "nluu9ot",
+    "uu-science": "nluu6p",
+    "uu-fsw": "nluu10p",
+    "uu-its": "nluu12p"
 }
 
-_SERVER_DESCRIPTIONS = {
-    "youth": "YOUth Cohort Study",
-    "geo": "Geosciences",
-    "i-lab": "Humanities, Law, Economics, Governance, Open Societies",
-    "dgk": "Veterinary Medicine, Medicine",
-    "science": "Science",
-    "fsw": "Social and Behavioral Sciences",
-    "its": "University Corporate Offices"
-}
+# _SERVER_DESCRIPTIONS = {
+#     "youth": "YOUth Cohort Study",
+#     "geo": "Geosciences",
+#     "i-lab": "Humanities, Law, Economics, Governance, Open Societies",
+#     "dgk": "Veterinary Medicine, Medicine",
+#     "science": "Science",
+#     "fsw": "Social and Behavioral Sciences",
+#     "its": "University Corporate Offices"
+# }
 
 _BASE_TEMPLATE = """{
     "irods_host": "${host}.data.uu.nl",
@@ -46,22 +46,31 @@ class IBridgesUUTemplates:
 
     name = "Utrecht University templates"
     questions = ["email_address"]
+    descriptions = {
+        "uu-youth": "YOUth Cohort Study",
+        "uu-geo": "Geosciences",
+        "uu-i-lab": "Humanities, Law, Economics, Governance, Open Societies",
+        "uu-dgk": "Veterinary Medicine, Medicine",
+        "uu-science": "Science",
+        "uu-fsw": "Social and Behavioral Sciences",
+        "uu-its": "University Corporate Offices"
+    }
 
     @staticmethod
     def list_templates() -> list[str]:
         """List all templates for servers that are available."""
-        return [f"uu-{key: <7} - {_SERVER_DESCRIPTIONS[key]}" for key in _SERVERS_TO_ZONE]
+        return list(_SERVERS_TO_ZONE)
 
     @staticmethod
     def contains(template_name: str) -> bool:
         """Whether a template name is provided by this template."""
-        return template_name in ["uu-" + key for key in _SERVERS_TO_ZONE]
+        return template_name in _SERVERS_TO_ZONE
 
     @staticmethod
     def environment_json(template_name: str, email_address: str) -> str:
         """Create a valid environment.json with the given inputs."""
         host = template_name[3:]
-        zone = _SERVERS_TO_ZONE[host]
+        zone = _SERVERS_TO_ZONE[template_name]
         template = Template(_BASE_TEMPLATE)
         return template.substitute({"zone": zone, "email_address": email_address,
                                     "host": host})
