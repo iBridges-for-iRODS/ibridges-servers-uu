@@ -13,15 +13,6 @@ _SERVERS_TO_ZONE = {
     "uu-its": "nluu12p"
 }
 
-# _SERVER_DESCRIPTIONS = {
-#     "youth": "YOUth Cohort Study",
-#     "geo": "Geosciences",
-#     "i-lab": "Humanities, Law, Economics, Governance, Open Societies",
-#     "dgk": "Veterinary Medicine, Medicine",
-#     "science": "Science",
-#     "fsw": "Social and Behavioral Sciences",
-#     "its": "University Corporate Offices"
-# }
 
 _BASE_TEMPLATE = """{
     "irods_host": "${host}.data.uu.nl",
