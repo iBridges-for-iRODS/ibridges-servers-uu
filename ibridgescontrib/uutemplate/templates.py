@@ -19,7 +19,7 @@ _BASE_TEMPLATE = """{
     "irods_port": 1247,
     "irods_home": "/${zone}/home",
     "irods_user_name": "${email_address}",
-    "irods_default_resource": "irodsResc",
+    "irods_default_resource": "${resc}",
     "irods_zone_name": "${zone}",
     "irods_authentication_scheme": "pam",
     "irods_encryption_algorithm": "AES-256-CBC",
@@ -63,5 +63,6 @@ class IBridgesUUTemplates:
         host = template_name[3:]
         zone = _SERVERS_TO_ZONE[template_name]
         template = Template(_BASE_TEMPLATE)
+        resc = "irodsResc2" if template_name in ["uu-dgk", "uu-youth"] else "irodsResc"
         return template.substitute({"zone": zone, "email_address": email_address,
-                                    "host": host})
+                                    "host": host, "resc": resc})
