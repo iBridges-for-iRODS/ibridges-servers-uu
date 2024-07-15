@@ -53,8 +53,8 @@ jobs:
       run: mypy ibridgescontrib/uutemplate --namespace-packages --explicit-package-bases
     - name: Check if templates are listed
       run: |
-        ibridges template --list
-        test $(ibridges template --list | wc -l) -eq 11
+        ibridges setup --list
+        test $(ibridges setup --list | wc -l) -eq 11
 #    Uncomment the actions below depending on the linters and tests you want to do
 #    - name: Lint with flake8pip
 #      run: |
