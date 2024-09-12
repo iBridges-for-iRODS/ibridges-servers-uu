@@ -33,6 +33,9 @@ uu = "ibridgescontrib.uutemplate.templates:IBridgesUUTemplates"
 [tool.setuptools]
 packages = ["ibridgescontrib"]
 
+[tool.setuptools_scm]
+write_to = "ibridgescontrib/uutemplate/_version.py"
+
 [tool.ruff]
 line-length = 100
 target-version = "py311"
