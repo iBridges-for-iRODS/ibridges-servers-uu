@@ -7,7 +7,7 @@ This repository can be used to create an iRODS environment json that is needed t
 Type the following on the command line (in your virtual environment if you use one):
 
 ```sh
-pip install git+https://github.com/UtrechtUniversity/ibridges-servers-uu.git
+pip install ibridges-servers-uu
 ```
 
 ## Step 2: Find the right server
