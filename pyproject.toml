@@ -37,6 +37,7 @@ packages = ["ibridgescontrib"]
 write_to = "ibridgescontrib/uutemplate/_version.py"
 
 [tool.ruff]
+exclude = ["_version.py"]
 line-length = 100
 target-version = "py311"
 
