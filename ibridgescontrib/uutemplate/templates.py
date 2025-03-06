@@ -62,7 +62,7 @@ class IBridgesUUTemplates:
     @staticmethod
     def environment_json(template_name: str, email_address: str) -> str:
         """Create a valid environment.json with the given inputs."""
-        host = template_name[3:]+".data" if not template_name == "uu-surf" else "portal.yoda"
+        host = template_name[3:]+".data" if not template_name == "uu-surf" else "data.yoda"
         zone = _SERVERS_TO_ZONE[template_name]
         template = Template(_BASE_TEMPLATE)
         resc = "irodsResc2" if template_name in ["uu-dgk", "uu-youth"] else "irodsResc"
