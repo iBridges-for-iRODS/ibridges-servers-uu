@@ -10,12 +10,13 @@ _SERVERS_TO_ZONE = {
     "uu-dgk": "nluu9ot",
     "uu-science": "nluu6p",
     "uu-fsw": "nluu10p",
-    "uu-its": "nluu12p"
+    "uu-its": "nluu12p",
+    "uu-surf": "uu",
 }
 
 
 _BASE_TEMPLATE = """{
-    "irods_host": "${host}.data.uu.nl",
+    "irods_host": "${host}.uu.nl",
     "irods_port": 1247,
     "irods_home": "/${zone}/home",
     "irods_user_name": "${email_address}",
@@ -44,7 +45,8 @@ class IBridgesUUTemplates:
         "uu-dgk": "Veterinary Medicine, Medicine",
         "uu-science": "Science",
         "uu-fsw": "Social and Behavioral Sciences",
-        "uu-its": "University Corporate Offices"
+        "uu-its": "University Corporate Offices",
+        "uu-surf": "Yoda instance hosted at SURF"
     }
 
     @staticmethod
@@ -60,7 +62,7 @@ class IBridgesUUTemplates:
     @staticmethod
     def environment_json(template_name: str, email_address: str) -> str:
         """Create a valid environment.json with the given inputs."""
-        host = template_name[3:]
+        host = template_name[3:]+".data" if not template_name == "uu-surf" else "portal.yoda"
         zone = _SERVERS_TO_ZONE[template_name]
         template = Template(_BASE_TEMPLATE)
         resc = "irodsResc2" if template_name in ["uu-dgk", "uu-youth"] else "irodsResc"
