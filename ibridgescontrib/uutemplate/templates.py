@@ -68,4 +68,4 @@ class IBridgesUUTemplates:
         pam_scheme = "pam_password" if template_name != "uu-surf" else "pam"
         resc = "irodsResc2" if template_name in ["uu-dgk", "uu-youth"] else "irodsResc"
         return template.substitute({"zone": zone, "email_address": email_address,
-                                    "host": host, "resc": resc})
+                                    "host": host, "resc": resc, "pam_scheme": pam_scheme})
