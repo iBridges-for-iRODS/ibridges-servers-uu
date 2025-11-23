@@ -65,7 +65,6 @@ class IBridgesUUTemplates:
         host = template_name[3:]+".data" if template_name != "uu-surf" else "data.yoda"
         zone = _SERVERS_TO_ZONE[template_name]
         template = Template(_BASE_TEMPLATE)
-        pam_scheme = "pam_password" if template_name != "uu-surf" else "pam"
         resc = "irodsResc2" if template_name in ["uu-dgk", "uu-youth"] else "irodsResc"
         return template.substitute({"zone": zone, "email_address": email_address,
-                                    "host": host, "resc": resc, "pam_scheme": pam_scheme})
+                                    "host": host, "resc": resc, "pam_scheme": "pam_password"})
