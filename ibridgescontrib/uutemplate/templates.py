@@ -10,7 +10,6 @@ _SERVERS_TO_ZONE = {
     "uu-dgk": "nluu9ot",
     "uu-science": "nluu6p",
     "uu-fsw": "nluu10p",
-    "uu-its": "nluu12p",
     "uu-surf": "uu",
 }
 
@@ -45,7 +44,6 @@ class IBridgesUUTemplates:
         "uu-dgk": "Veterinary Medicine, Medicine",
         "uu-science": "Science",
         "uu-fsw": "Social and Behavioral Sciences",
-        "uu-its": "University Corporate Offices",
         "uu-surf": "Yoda instance hosted at SURF"
     }
 
